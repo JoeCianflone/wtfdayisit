@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTF Day Is It?</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        body {
+            font-family: 'Bebas Neue', cursive;
+            display: grid;
+            color: #444;
+            height: 100vh;
+            width: 100vw;
+            padding: 0; 
+            margin: 0; 
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 6.2rem;
+        }
+
+        p {
+            font-size: 2rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Today is <span class="the-fucking-day"></span></h1>
+        <p>Did you shower today?</p>
+    </main>
+    <script>
+        var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        document.querySelector('.the-fucking-day').innerHTML = dow[moment().isoWeekday() - 1];
+    </script>
+</body>
+</html>
