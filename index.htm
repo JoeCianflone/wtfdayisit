@@ -9,17 +9,17 @@
     <style>
         * { padding: 0; margin: 0; }
         body {
-            font-family: 'Bebas Neue', cursive;
-            display: grid;
+            align-items: center;
             color: #444;
-            height: 100vh;
-            width: 100vw;
-            padding: 0; 
-            margin: 0; 
+            display: grid;
+            font-family: 'Bebas Neue', cursive;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
-            align-items: center;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
             text-align: center;
+            width: 100vw;
         }
 
         h1 {
@@ -27,19 +27,32 @@
         }
 
         p {
-            font-size: 2rem;
             color: #999;
+            font-size: 2rem;
         }
     </style>
 </head>
 <body>
     <main>
         <h1>Today is <span class="the-fucking-day"></span></h1>
-        <p>Did you shower today?</p>
+        <p class="snark"></p>
     </main>
     <script>
         var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        var snarky = [
+            'Did you shower today?',
+            'When was the last time your brushed your teeth?',
+            'Do some crunches tubby',
+            'No dummy, covid-19 is not caused by 5G',
+            'You should call someone you miss.',
+            'When was the last time you washed those sweatpants?',
+            'Watching The Office is not a substitute for checking email',
+        ]
+
+        var randomSnark = Math.floor(Math.random() * (snarky.length) + 1) - 1;
         document.querySelector('.the-fucking-day').innerHTML = dow[moment().isoWeekday() - 1];
+        document.querySelector('.snark').innerHTML = snarky[randomSnark];
+        
     </script>
 </body>
 </html>
