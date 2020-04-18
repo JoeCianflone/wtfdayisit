@@ -1,13 +1,29 @@
+<!-- You're kidding me right? You're looking at this source? Ok, I'll annotate it...-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WTF Day Is It?</title>
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet"> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- I like this font -->
+    <link href="//fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <!-- "...but why did he import momentjs that's a massive libarary, he could have hand written his own 
+    bespoke Date libary it would have been so much cleaner..." my response: "I uh, don't care" -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!-- Here's the CSS...grids are more fun than flexbox -->
     <style>
-        * { padding: 0; margin: 0; }
+        * {
+            box-sizing: inherit;
+            -webkit-overflow-scrolling: touch;
+        }
+        *::before, *::after {
+            box-sizing: inherit;
+        }
+        html {
+            box-sizing: border-box;
+            height: 100vh;    
+        }
         body {
             align-items: center;
             color: #444;
@@ -16,48 +32,84 @@
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
             height: 100vh;
+            line-height: 1.5;
             margin: 0; 
-            padding: 0; 
+            min-width: 320px;
+            padding: 0 40px; 
             text-align: center;
             width: 100vw;
         }
 
         h1 {
             font-size: 6.2rem;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
         }
 
         p {
             color: #999;
             font-size: 2rem;
+            line-height: 1.3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .year {
+            border-radius: 1%;
+            border: 5px solid #444;
+            width: 320px;
         }
     </style>
 </head>
 <body>
     <main>
+        <img class="year" src="images/year.jpg" alt="Day? Week? Month? I got no fucking clue">
         <h1>Today is <span class="the-fucking-day"></span></h1>
         <p class="snark"></p>
     </main>
+    <!-- 
+        I considered doing this in Vue or React just to see if I could get someone to go on a
+        diatribe about how over engineered this is...but that seemed too much like work so...
+    -->
     <script>
-        var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        var snarky = [
-            'Did you shower today?',
-            'When was the last time your brushed your teeth?',
-            'Do some crunches tubby.',
-            'No dummy, covid-19 is not caused by 5G.',
-            'You should call someone you miss.',
-            'When was the last time you washed those sweatpants?',
-            'Watching The Office is not a substitute for checking email.',
-            'Just...just go back to sleep.',
-            'No, using wetnaps are not a good shower substitute.',
-            'I assumed there\'d be more leather in the apocalypse',
-            'Your mom called, she wants to you to continue the social distancing even after the lockdown',
-            'That friend, who thinks the earth is flat, is not someone you should listen to about covid-19.',
-        ];
+        (function() {
+            var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            var snarky = [
+                'Did you shower today?',
+                'When was the last time your brushed your teeth?',
+                'Do some crunches tubby.',
+                'No dummy, covid-19 is not caused by 5G.',
+                'You should call someone you miss.',
+                'When was the last time you washed those sweatpants?',
+                'Watching The Office is not a substitute for checking email.',
+                'Just...just go back to sleep.',
+                'No, using wetnaps are not a good shower substitute.',
+                'I assumed there\'d be more leather in the apocalypse',
+                'Your mom called, she wants to you to continue the social distancing even after the lockdown',
+                'That friend, who thinks the earth is flat, is not someone you should listen to about covid-19.',
+                'Oh please, you were gonna cancel your plans anyway to sit on the couch.',
+                'Look, we all know you don\'t have friends, so going out was never an option,',
+                'See. All of those meetings could have been emails.',
+                'Yes another day of hate liking posts.',
+                'It\'s ok. You can ask what\'s for dinner at lunch',
+                'Every Whitehouse briefing you watch drops your IQ by 5 points...and most of you already owe',
+                'Leftover Nachos are fine for breakfast.',
+                'You were gong to binge that show anyway.',
+                'You\'re someones reason to get out of bed...because you scheduled a stupid Zoom meeting too early',
+                'Ugh this again? I mean \"good morning!\"',
+                'We can\'t leave lockdown till you use up all your TP.',
+                'Don\'t blame me I didnt open the black Sarcophagus',
+                'If you don\'t have kids and you are complaining about lockdown know that I hate you',
+                'Lets play a game...guess how many people on your last Zoom meeting were watching PornHub in the background',
+                'Guess you can work on that "book" you’re always on about....lol'
+            ];
 
-        var randomSnark = Math.floor(Math.random() * (snarky.length) + 1) - 1;
-        document.querySelector('.the-fucking-day').innerHTML = dow[moment().isoWeekday() - 1];
-        document.querySelector('.snark').innerHTML = snarky[randomSnark];
-        
+            var randomSnark = Math.floor(Math.random() * (snarky.length) + 1) - 1;
+            document.querySelector('.the-fucking-day').innerHTML = dow[moment().isoWeekday() - 1];
+            document.querySelector('.snark').innerHTML = snarky[randomSnark];
+        })();
     </script>
+    <!-- No analytics: we aren't watching you because we don't care -->
 </body>
 </html>
