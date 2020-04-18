@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WTF Day Is It?</title>
     <!-- I like this font -->
-    <link href="//fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Bebas+Neue&display=swap"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <!-- "...but why did he import momentjs that's a massive libarary, he could have hand written his own 
     bespoke Date libary it would have been so much cleaner..." my response: "I uh, don't care" -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -39,7 +40,7 @@
             padding: 0; 
             text-align: center;
             width: 100vw;
-            overflow-y: auto;
+            overflow-y: scroll;
         }
 
         h1 {
