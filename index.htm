@@ -11,7 +11,7 @@
     <meta property="og:title" content="WTF Day Is It?">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wtfdayisit.com">
-    <meta property="og:image" content="http://wtfdayisit.com/images/year.jpg">
+    <meta property="og:image" content="https://wtfdayisit.com/images/year.jpg">
     <meta property="og:description" content="I couldn't remember the day of the week before I was stuck in the house, now, forget it. I needed a stupid-simple thing to remind me the day of the week...here you go">     
 
     <!-- I like this font -->
@@ -26,8 +26,8 @@
     <!-- Here's the CSS...grids are more fun than flexbox -->
     <style>
         * {
-            box-sizing: inherit;
             -webkit-overflow-scrolling: touch;
+            box-sizing: inherit;
         }
         *::before, *::after {
             box-sizing: inherit;
@@ -48,10 +48,10 @@
             line-height: 1.5;
             margin: 0; 
             min-width: 320px;
+            overflow-y: scroll;
             padding: 0; 
             text-align: center;
             width: 100vw;
-            overflow-y: scroll;
         }
 
         h1 {
@@ -75,10 +75,11 @@
             width: 320px;
         }
     </style>
+    <!-- if you're wondering where the media queries are...look at the site again...you think I need a media query? -->
 </head>
 <body>
     <main>
-        <img class="year" src="images/year.jpg" alt="Day? Week? Month? I got no fucking clue">
+        <img class="year" src="images/year.jpg" alt="Day? Week? Month? I got no fucking clue. 2020? 1920? 2004? No idea! At this point you could tell me it's the 4th quiznak of melmar and I'd go with it">
         <h1>Today is <span class="the-fucking-day"></span></h1>
         <p class="snark"></p>
     </main>
@@ -88,7 +89,10 @@
     -->
     <script>
         (function() {
+            /** There are probably 100 different ways to make this better...I don't care **/
             var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            /** I'm happy to update this list! If you're reading this, you're crazy so send me a PR with some ideas **/
             var snarky = [
                 'Did you shower today?',
                 'When was the last time you brushed your teeth?',
