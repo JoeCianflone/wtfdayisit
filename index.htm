@@ -61,6 +61,14 @@
             padding: 0 10px;
         }
 
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0;
+            padding: 5px 10px;
+            color: #aaa;
+        }
+
         p {
             color: #999;
             font-size: 2rem;
@@ -79,6 +87,7 @@
 </head>
 <body>
     <main>
+        <h2 class="date"></h2>
         <img class="year" src="images/year.jpg" alt="Day? Week? Month? I got no fucking clue. 2020? 1920? 2004? No idea! At this point you could tell me it's the 4th quiznak of melmar and I'd go with it">
         <h1>Today is <span class="the-fucking-day"></span></h1>
         <p class="snark"></p>
@@ -89,18 +98,17 @@
     -->
     <script>
         (function() {
-            /** There are probably 100 different ways to make this better...I don't care **/
-            var dow = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
             /** I'm happy to update this list! If you're reading this, you're crazy so send me a PR with some ideas **/
             var snarky = [
                 'Did you shower today?',
                 'When was the last time you brushed your teeth?',
                 'Do some crunches tubby.',
                 'No dummy, covid-19 is not caused by 5G.',
+                'You know, you could have just looked at your fucking phone dummy',
                 'You should call someone you miss.',
                 'When was the last time you washed those sweatpants?',
                 'Watching The Office is not a substitute for checking email.',
+                'Turns out, I cannot remember the date either',
                 'Just...just go back to sleep.',
                 'No, using wet naps are not a good shower substitute.',
                 'I assumed there\'d be more leather in the apocalypse',
@@ -110,6 +118,7 @@
                 'Look, we all know you don\'t have friends, so going out was never an option.',
                 'See. All of those meetings could have been emails.',
                 'Yes another day of hate liking posts.',
+                'Still 2020...I think',
                 'It\'s ok. You can ask what\'s for dinner at lunch',
                 'Every White House briefing you watch drops your IQ by 5 points...and most of you already owe',
                 'Leftover Nachos are fine for breakfast.',
@@ -127,7 +136,10 @@
 
             /** What's up with all thees var's what is this 1998? I feel your eye twitch and I love it **/
             var randomSnark = Math.floor(Math.random() * (snarky.length) + 1) - 1;
-            document.querySelector('.the-fucking-day').innerHTML = dow[moment().isoWeekday() - 1];
+
+            var dt = moment();
+            document.querySelector('.the-fucking-day').innerHTML = dt.format('dddd');
+            document.querySelector('.date').innerHTML = dt.format('MMMM Do');
             document.querySelector('.snark').innerHTML = snarky[randomSnark];
         })();
     </script>
